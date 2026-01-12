@@ -1,0 +1,15 @@
+class MinSubArrayLen {
+    public static void main(String[] args) {
+        int[] nums = {2,3,1,2,4,3};
+        int target = 7, l = 0, sum = 0, min = Integer.MAX_VALUE;
+
+        for (int r = 0; r < nums.length; r++) {
+            sum += nums[r];
+            while (sum >= target) {
+                min = Math.min(min, r - l + 1);
+                sum -= nums[l++];
+            }
+        }
+        System.out.println(min == Integer.MAX_VALUE ? 0 : min);
+    }
+}
