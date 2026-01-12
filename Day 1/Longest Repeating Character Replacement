@@ -1,0 +1,16 @@
+class LongestRepeat {
+    public static void main(String[] args) {
+        String s = "AABABBA";
+        int k = 1, l = 0, maxCount = 0, res = 0;
+        int[] freq = new int[26];
+
+        for (int r = 0; r < s.length(); r++) {
+            maxCount = Math.max(maxCount, ++freq[s.charAt(r) - 'A']);
+            while (r - l + 1 - maxCount > k) {
+                freq[s.charAt(l++) - 'A']--;
+            }
+            res = Math.max(res, r - l + 1);
+        }
+        System.out.println(res);
+    }
+}
