@@ -1,0 +1,13 @@
+class ContainerWater {
+    public static void main(String[] args) {
+        int[] h = {1,8,6,2,5,4,8,3,7};
+        int l = 0, r = h.length - 1, max = 0;
+
+        while (l < r) {
+            max = Math.max(max, Math.min(h[l], h[r]) * (r - l));
+            if (h[l] < h[r]) l++;
+            else r--;
+        }
+        System.out.println(max);
+    }
+}
