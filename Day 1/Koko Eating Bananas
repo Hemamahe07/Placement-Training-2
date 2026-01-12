@@ -1,0 +1,22 @@
+class Koko {
+    static boolean canEat(int[] p, int k, int h) {
+        int hours = 0;
+        for (int x : p)
+            hours += (x + k - 1) / k;
+        return hours <= h;
+    }
+
+    public static void main(String[] args) {
+        int[] piles = {3,6,7,11};
+        int h = 8, l = 1, r = 11, ans = 0;
+
+        while (l <= r) {
+            int m = (l + r) / 2;
+            if (canEat(piles, m, h)) {
+                ans = m;
+                r = m - 1;
+            } else l = m + 1;
+        }
+        System.out.println(ans);
+    }
+}
