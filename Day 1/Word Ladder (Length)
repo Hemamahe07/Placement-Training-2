@@ -1,0 +1,33 @@
+import java.util.*;
+
+class WordLadder {
+    public static void main(String[] args) {
+        String begin = "hit", end = "cog";
+        List<String> list = Arrays.asList("hot","dot","dog","lot","log","cog");
+        Set<String> set = new HashSet<>(list);
+        Queue<String> q = new LinkedList<>();
+        q.add(begin);
+        int level = 1;
+
+        while (!q.isEmpty()) {
+            for (int size = q.size(); size > 0; size--) {
+                String word = q.poll();
+                if (word.equals(end)) {
+                    System.out.println(level);
+                    return;
+                }
+                for (int i = 0; i < word.length(); i++) {
+                    char[] arr = word.toCharArray();
+                    for (char c = 'a'; c <= 'z'; c++) {
+                        arr[i] = c;
+                        String next = new String(arr);
+                        if (set.remove(next))
+                            q.add(next);
+                    }
+                }
+            }
+            level++;
+        }
+        System.out.println(0);
+    }
+}
