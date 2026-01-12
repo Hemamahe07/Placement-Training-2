@@ -1,0 +1,23 @@
+import java.util.*;
+
+class LRUCache extends LinkedHashMap<Integer,Integer> {
+    int cap;
+
+    LRUCache(int cap) {
+        super(cap, 0.75f, true);
+        this.cap = cap;
+    }
+
+    protected boolean removeEldestEntry(Map.Entry<Integer,Integer> e) {
+        return size() > cap;
+    }
+
+    public static void main(String[] args) {
+        LRUCache c = new LRUCache(2);
+        c.put(1,1);
+        c.put(2,2);
+        c.get(1);
+        c.put(3,3);
+        System.out.println(c.keySet());
+    }
+}
