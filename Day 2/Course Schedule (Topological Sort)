@@ -1,0 +1,31 @@
+import java.util.*;
+
+class CourseSchedule {
+    public static void main(String[] args) {
+        int n = 2;
+        int[][] pre = {{1,0}};
+        List<List<Integer>> g = new ArrayList<>();
+        for (int i = 0; i < n; i++) g.add(new ArrayList<>());
+
+        int[] indeg = new int[n];
+        for (int[] p : pre) {
+            g.get(p[1]).add(p[0]);
+            indeg[p[0]]++;
+        }
+
+        Queue<Integer> q = new LinkedList<>();
+        for (int i = 0; i < n; i++)
+            if (indeg[i] == 0) q.add(i);
+
+        int count = 0;
+        while (!q.isEmpty()) {
+            int v = q.poll();
+            count++;
+            for (int x : g.get(v)) {
+                if (--indeg[x] == 0) q.add(x);
+            }
+        }
+
+        System.out.println(count == n);
+    }
+}
