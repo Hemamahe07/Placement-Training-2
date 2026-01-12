@@ -1,0 +1,33 @@
+class Trie {
+    static class Node {
+        Node[] next = new Node[26];
+        boolean end;
+    }
+
+    static Node root = new Node();
+
+    static void insert(String w) {
+        Node cur = root;
+        for (char c : w.toCharArray()) {
+            if (cur.next[c - 'a'] == null)
+                cur.next[c - 'a'] = new Node();
+            cur = cur.next[c - 'a'];
+        }
+        cur.end = true;
+    }
+
+    static boolean search(String w) {
+        Node cur = root;
+        for (char c : w.toCharArray()) {
+            if (cur.next[c - 'a'] == null) return false;
+            cur = cur.next[c - 'a'];
+        }
+        return cur.end;
+    }
+
+    public static void main(String[] args) {
+        insert("apple");
+        System.out.println(search("apple"));
+        System.out.println(search("app"));
+    }
+}
