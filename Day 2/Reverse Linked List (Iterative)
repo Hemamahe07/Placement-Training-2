@@ -1,0 +1,25 @@
+class ReverseLL {
+    static class Node {
+        int val; Node next;
+        Node(int v) { val = v; }
+    }
+
+    public static void main(String[] args) {
+        Node head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+
+        Node prev = null, curr = head;
+        while (curr != null) {
+            Node next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        while (prev != null) {
+            System.out.print(prev.val + " ");
+            prev = prev.next;
+        }
+    }
+}
