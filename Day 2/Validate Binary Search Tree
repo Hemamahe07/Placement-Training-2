@@ -1,0 +1,19 @@
+class ValidateBST {
+    static class Node {
+        int val; Node left, right;
+        Node(int v) { val = v; }
+    }
+
+    static boolean isValid(Node r, long min, long max) {
+        if (r == null) return true;
+        if (r.val <= min || r.val >= max) return false;
+        return isValid(r.left, min, r.val) && isValid(r.right, r.val, max);
+    }
+
+    public static void main(String[] args) {
+        Node root = new Node(2);
+        root.left = new Node(1);
+        root.right = new Node(3);
+        System.out.println(isValid(root, Long.MIN_VALUE, Long.MAX_VALUE));
+    }
+}
