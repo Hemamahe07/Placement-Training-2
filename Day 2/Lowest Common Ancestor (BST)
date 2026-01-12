@@ -1,0 +1,20 @@
+class LCA {
+    static class Node {
+        int val; Node left, right;
+        Node(int v) { val = v; }
+    }
+
+    static Node lca(Node r, int p, int q) {
+        if (r == null) return null;
+        if (p < r.val && q < r.val) return lca(r.left, p, q);
+        if (p > r.val && q > r.val) return lca(r.right, p, q);
+        return r;
+    }
+
+    public static void main(String[] args) {
+        Node root = new Node(6);
+        root.left = new Node(2);
+        root.right = new Node(8);
+        System.out.println(lca(root, 2, 8).val);
+    }
+}
