@@ -1,0 +1,4 @@
+def frequencySort(nums):
+    from collections import Counter
+    c = Counter(nums)
+    return sorted(nums, key=lambda x:(c[x],-x))
