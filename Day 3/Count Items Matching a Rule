@@ -1,0 +1,3 @@
+def countMatches(items, ruleKey, ruleValue):
+    idx = {"type":0,"color":1,"name":2}[ruleKey]
+    return sum(1 for it in items if it[idx]==ruleValue)
