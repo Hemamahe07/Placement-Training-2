@@ -1,0 +1,4 @@
+def maxDepth(root):
+    if not root:
+        return 0
+    return 1 + max(maxDepth(child) for child in root.children)
