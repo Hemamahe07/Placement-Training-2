@@ -1,0 +1,8 @@
+def kLengthApart(nums, k):
+    last = -1
+    for i,n in enumerate(nums):
+        if n==1:
+            if last!=-1 and i-last-1<k:
+                return False
+            last=i
+    return True
