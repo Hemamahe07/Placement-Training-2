@@ -1,0 +1,24 @@
+class Trie:
+    def __init__(self):
+        self.d = {}
+        self.end = False
+
+    def insert(self, word):
+        node = self
+        for c in word:
+            node = node.d.setdefault(c, Trie())
+        node.end = True
+
+    def search(self, word):
+        node = self
+        for c in word:
+            if c not in node.d: return False
+            node = node.d[c]
+        return node.end
+
+    def startsWith(self, prefix):
+        node = self
+        for c in prefix:
+            if c not in node.d: return False
+            node = node.d[c]
+        return True
