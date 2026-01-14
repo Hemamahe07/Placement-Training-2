@@ -1,0 +1,7 @@
+def findMissingRanges(nums, lower, upper):
+    res=[]; prev=lower-1
+    for n in nums+[upper+1]:
+        if n-prev>=2:
+            res.append(str(prev+1) if n-prev==2 else f"{prev+1}->{n-1}")
+        prev=n
+    return res
