@@ -1,0 +1,16 @@
+def minWindow(s, t):
+    from collections import Counter
+    need=Counter(t); have={}
+    l=0; res=""
+    needCnt=len(need); formed=0
+    for r,c in enumerate(s):
+        have[c]=have.get(c,0)+1
+        if c in need and have[c]==need[c]:
+            formed+=1
+        while formed==needCnt:
+            if not res or r-l+1<len(res): res=s[l:r+1]
+            have[s[l]]-=1
+            if s[l] in need and have[s[l]]<need[s[l]]:
+                formed-=1
+            l+=1
+    return res
