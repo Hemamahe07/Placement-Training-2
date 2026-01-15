@@ -1,0 +1,11 @@
+class RemoveElement {
+    public static void main(String[] args) {
+        int[] a = {3,2,2,3};
+        int val = 3, idx = 0;
+
+        for (int x : a)
+            if (x != val) a[idx++] = x;
+
+        System.out.println(idx);
+    }
+}
