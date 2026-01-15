@@ -1,0 +1,15 @@
+import java.util.*;
+
+class Intersection {
+    public static void main(String[] args) {
+        int[] a = {1,2,2,1};
+        int[] b = {2,2};
+        Set<Integer> s = new HashSet<>();
+        Set<Integer> res = new HashSet<>();
+
+        for (int x : a) s.add(x);
+        for (int x : b) if (s.contains(x)) res.add(x);
+
+        System.out.println(res);
+    }
+}
