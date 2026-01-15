@@ -1,0 +1,13 @@
+class ValidAnagram {
+    public static void main(String[] args) {
+        String a = "anagram", b = "nagaram";
+        int[] c = new int[26];
+
+        for (char x : a.toCharArray()) c[x - 'a']++;
+        for (char x : b.toCharArray()) c[x - 'a']--;
+
+        boolean ok = true;
+        for (int i : c) if (i != 0) ok = false;
+        System.out.println(ok);
+    }
+}
