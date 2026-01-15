@@ -1,0 +1,7 @@
+class LastWord {
+    public static void main(String[] args) {
+        String s = "Hello World";
+        String[] w = s.trim().split(" ");
+        System.out.println(w[w.length - 1].length());
+    }
+}
