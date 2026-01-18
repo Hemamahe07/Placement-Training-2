@@ -1,0 +1,5 @@
+def destCity(paths):
+    start = set(a for a, b in paths)
+    for a, b in paths:
+        if b not in start:
+            return b
