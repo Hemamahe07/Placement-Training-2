@@ -1,0 +1,9 @@
+def findShortestSubArray(nums):
+    from collections import defaultdict
+    left, right, cnt = {}, {}, defaultdict(int)
+    for i, n in enumerate(nums):
+        if n not in left: left[n] = i
+        right[n] = i
+        cnt[n] += 1
+    deg = max(cnt.values())
+    return min(right[n]-left[n]+1 for n in cnt if cnt[n] == deg)
