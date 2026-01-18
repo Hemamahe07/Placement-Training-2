@@ -1,0 +1,2 @@
+def truncateSentence(s, k):
+    return " ".join(s.split()[:k])
