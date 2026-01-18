@@ -1,0 +1,8 @@
+def checkIfExist(arr):
+    s = set(arr)
+    for x in arr:
+        if x != 0 and 2*x in s:
+            return True
+        if x == 0 and arr.count(0) > 1:
+            return True
+    return False
