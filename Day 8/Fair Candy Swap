@@ -1,0 +1,6 @@
+def fairCandySwap(aliceSizes, bobSizes):
+    diff = (sum(aliceSizes) - sum(bobSizes)) // 2
+    s = set(aliceSizes)
+    for b in bobSizes:
+        if b + diff in s:
+            return [b + diff, b]
