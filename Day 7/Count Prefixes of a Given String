@@ -1,0 +1,2 @@
+def countPrefixes(words, s):
+    return sum(1 for w in words if s.startswith(w))
