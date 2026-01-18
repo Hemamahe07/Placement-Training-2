@@ -1,0 +1,3 @@
+def numberOfSpecialChars(word):
+    s = set(word)
+    return sum(1 for c in s if c.islower() and c.upper() in s)
