@@ -1,0 +1,10 @@
+def totalMoney(n):
+    week = 0
+    res = 0
+    while n > 0:
+        for d in range(1+week, 8+week):
+            if n == 0: break
+            res += d
+            n -= 1
+        week += 1
+    return res
