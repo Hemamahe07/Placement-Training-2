@@ -1,0 +1,13 @@
+def reformat(s):
+    letters = [c for c in s if c.isalpha()]
+    digits = [c for c in s if c.isdigit()]
+    if abs(len(letters) - len(digits)) > 1:
+        return ""
+    res = []
+    big, small = (letters, digits) if len(letters) > len(digits) else (digits, letters)
+    for i in range(len(small)):
+        res.append(big[i])
+        res.append(small[i])
+    if len(big) > len(small):
+        res.append(big[-1])
+    return "".join(res)
