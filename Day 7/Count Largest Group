@@ -1,0 +1,5 @@
+def countLargestGroup(n):
+    from collections import Counter
+    c = Counter(sum(map(int,str(i))) for i in range(1,n+1))
+    mx = max(c.values())
+    return sum(1 for v in c.values() if v==mx)
