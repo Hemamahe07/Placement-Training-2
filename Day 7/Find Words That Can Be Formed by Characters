@@ -1,0 +1,9 @@
+def countCharacters(words, chars):
+    from collections import Counter
+    c = Counter(chars)
+    res = 0
+    for w in words:
+        wc = Counter(w)
+        if all(wc[ch] <= c[ch] for ch in wc):
+            res += len(w)
+    return res
